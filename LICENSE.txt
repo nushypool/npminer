@@ -1,0 +1,102 @@
+FREEWARE LICENSE AGREEMENT
+
+Copyright (c) 2026. All rights reserved.
+
+PLEASE READ THIS LICENSE AGREEMENT CAREFULLY BEFORE USING THIS SOFTWARE.
+BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE
+BOUND BY THE TERMS OF THIS AGREEMENT.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. GRANT OF LICENSE
+
+   The copyright holder grants you a non-exclusive, non-transferable,
+   royalty-free license to download, install, and use this software
+   ("Software") free of charge, for any purpose — personal or commercial —
+   subject to the restrictions set forth in this Agreement.
+
+2. PERMITTED USE
+
+   - Individuals and organizations (including commercial entities) may use
+     the Software free of charge without restriction on purpose or scale.
+   - You may redistribute the Software to third parties provided that:
+       (a) the Software is distributed in its original, unmodified form;
+       (b) this license file is included in full with every copy;
+       (c) no fee is charged for the Software itself (bundling as part of a
+           paid service or hardware product requires separate written
+           permission from the copyright holder).
+
+3. RESTRICTIONS
+
+   You may NOT:
+
+   (a) MODIFY — alter, adapt, translate, or create derivative works based
+       on the Software or any part thereof;
+
+   (b) REVERSE ENGINEER — decompile, disassemble, reverse engineer, or
+       otherwise attempt to derive the source code, algorithms, or internal
+       structure of the Software;
+
+   (c) PATCH — apply patches, binary edits, or any other modifications to
+       the Software's executable files or associated data files;
+
+   (d) SUBLICENSE — grant sublicenses or otherwise transfer rights beyond
+       those explicitly stated in this Agreement;
+
+   (e) REMOVE NOTICES — remove, obscure, or alter any copyright, trademark,
+       or proprietary notices contained in the Software.
+
+4. OWNERSHIP & INTELLECTUAL PROPERTY
+
+   The Software is licensed, not sold. The copyright holder retains all
+   right, title, and interest in and to the Software, including all
+   intellectual property rights therein. This Agreement does not transfer
+   any ownership rights to you.
+
+5. NO WARRANTY (AS-IS)
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+   THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS
+   WITH YOU.
+
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY DIRECT,
+   INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+   (INCLUDING BUT NOT LIMITED TO PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; BUSINESS INTERRUPTION; LOSS OF
+   MINED CRYPTOCURRENCY OR HASHING REWARDS; OR HARDWARE DAMAGE) ARISING IN
+   ANY WAY OUT OF THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGE.
+
+6. COMPLIANCE WITH LAWS
+
+   You are solely responsible for ensuring that your use of the Software
+   complies with all applicable local, national, and international laws and
+   regulations, including but not limited to those governing cryptocurrency
+   mining, energy consumption, financial regulation, and taxation. The
+   copyright holder assumes no responsibility for unlawful use.
+
+7. TERMINATION
+
+   This license is effective until terminated. Your rights under this
+   Agreement will terminate automatically and without notice if you fail to
+   comply with any of its terms. Upon termination, you must immediately
+   cease all use of the Software and destroy all copies in your possession.
+
+8. GOVERNING LAW
+
+   This Agreement shall be governed by and construed in accordance with the
+   laws of the jurisdiction in which the copyright holder is located,
+   without regard to conflict-of-law principles.
+
+9. ENTIRE AGREEMENT
+
+   This Agreement constitutes the entire agreement between you and the
+   copyright holder concerning the Software and supersedes all prior
+   agreements, understandings, and communications.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For licensing inquiries, commercial bundling permissions, or other questions,
+contact the copyright holder via the repository listed on the distribution page.
