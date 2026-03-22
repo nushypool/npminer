@@ -245,11 +245,7 @@ VERSION=<VERSION> && curl -L "https://github.com/nushypool/npminer/releases/down
 Example HiveOS configurations
 | Hoohash | Vecno | Cpay |
 |---|---|---|
-| <img width="675" height="698" alt="image" src="https://github.com/user-attachments/assets/037469d5-e77e-414c-a17d-8197d625350e" /> | <img width="670" height="694" alt="image" src="https://github.com/user-attachments/assets/ce5107aa-282a-4349-a150-c0ad03a5f8d5" /> | <img width="677" height="698" alt="image" src="https://github.com/user-attachments/assets/8f8bf6d8-57b3-4854-9cee-b5ce1797b544" /> |
-
-
-
-### Setup for mmpOS
+| <img width="675" height="694" alt="image" src="https://github.com/user-attachments/assets/e0dcad8c-c14a-402f-a5c7-9b03a65a6c7a" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/89a2a8b0-9217-4e5b-be4d-4a88836e1e6e" /> | <img width="679" height="697" alt="image" src="https://github.com/user-attachments/assets/162ab204-4969-4acf-b006-ba5d969fdd5c" /> |
 
 
 ## Notes
