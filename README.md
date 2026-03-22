@@ -214,16 +214,16 @@ Legacy compatibility Stratum options are also supported:
 
 | Algorithm | Stratum | Solo gRPC | NushyPool |
 |-----------|--------:|----------:|----------:|
-| `memhash` | `2%` | `2%` | `0%` |
-| `hoohash` | `2%` | `2%` | `0%` |
-| `cryptix` | `2%` | `2%` | `0%` |
+| `memhash` | `1%` | `1%` | `0%` |
+| `hoohash` | `1%` | `1%` | `0%` |
+| `cryptix` | `1%` | `1%` | `0%` |
 
 > **NushyPool users mine with no dev fee.**
 > 
 
 ## One-Line Installation
 
-Replace `<VERSION>` with the release version you want, for example `0.0.2`.
+Replace `<VERSION>` with the release version you want, for example `0.0.1`.
 
 ### Windows
 
