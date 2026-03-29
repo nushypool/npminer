@@ -24,7 +24,6 @@ It supports standard Stratum pool mining and solo gRPC mining.
 > [!CAUTION]
 > **Notes:**
 > - The latest drivers are required to achieve optimal hashrate performance.
-> - **OpenCL (AMD)** support is still experimental and optimal performance is not guaranteed.
 > - **Hoohash:** Support is experimental, performance may vary, and active development is ongoing.
 
 ## npminer
