@@ -22,7 +22,6 @@ It supports standard Stratum pool mining and solo gRPC mining.
 - Includes watchdog-based worker supervision and recovery-oriented startup checks.
 
 > [!CAUTION]
-> **Notes:**
 > - The latest drivers are required to achieve optimal hashrate performance.
 > - **Hoohash:** Support is experimental, performance may vary, and active development is ongoing.
 
