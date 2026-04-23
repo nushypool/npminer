@@ -22,8 +22,9 @@ It supports standard Stratum pool mining and solo gRPC mining.
 - Includes watchdog-based worker supervision and recovery-oriented startup checks.
 
 > [!CAUTION]
-> - The latest drivers are required to achieve optimal hashrate performance.
+> - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
 > - **Hoohash:** Support is experimental, performance may vary, and active development is ongoing.
+> - **AMD / OpenCL cards:** Support is experimental — optimal performance is not guaranteed.
 
 ## npminer
 
