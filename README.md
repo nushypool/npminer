@@ -42,7 +42,8 @@ Typical pool mining command:
 Typical solo gRPC mining command:
 
 ```bash
-./npminer -a hoohash --client-address 127.0.0.1 --port 7110 -u hoosat:YOUR_WALLET
+./npminer -a hoohash -о grpc://127.0.0.1:42420 -u hoosat:YOUR_WALLET
+./npminer -a hoohash --url grpc://127.0.0.1:42420 --user hoosat:YOUR_WALLET
 ```
 
 Useful GPU selection commands:
@@ -79,7 +80,7 @@ More examples:
 ```bash
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET -d 0
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET --devices 0,2,3
-./npminer -a hoohash --client-address 127.0.0.1 --port 7110 -u hoosat:YOUR_WALLET -d 1
+./npminer -a hoohash -о grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
 ```
 
 If `--devices` is not provided, all detected GPUs are used.
@@ -136,10 +137,10 @@ The current supported `npminer` command-line options are:
 - `--reset-autotune`
   Delete cached autotune state and force a fresh retune.
 
-### Stratum Pool Mining
+### Stratum Pool and Solo Node Mining
 
 - `-o, --url <URL>`
-  Standard Stratum URL, for example `stratum+tcp://host:port`.
+  Standard Stratum URL, for example `stratum+tcp://host:port` for stratum or `grpc://host:port` for solo mining on node
 - `-w, --worker <WORKER>`
   Standard worker name.
 - `-p, --pass <PASSWORD>`
@@ -152,16 +153,6 @@ Legacy compatibility Stratum options are also supported:
 - `--stratum-worker <WORKER>`
 - `--stratum-password <PASSWORD>`
 
-### Solo gRPC Mining
-
-- `-s, --client-address <HOST>`
-  Blockchain node address for solo gRPC mining.
-- `--port <PORT>`
-  Blockchain node port.
-- `--testnet`
-  Use testnet defaults for solo gRPC mining.
-- `--mine-when-not-synced`
-  Continue mining even when the node reports not synced.
 
 ### CUDA Options
 
