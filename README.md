@@ -5,6 +5,7 @@
 - `memhash` for [Vecno Fondation](https://vecnofoundation.org/)
 - `cryptix` for [Cryptix Network](https://cryptix-network.org/)
 - `hoohash` for [Hoosat Network](https://network.hoosat.fi/)
+- `xelishash` for [Xelis Network](https://xelis.io/)
 
 It supports standard Stratum pool mining and solo gRPC mining.
 
@@ -12,7 +13,7 @@ It supports standard Stratum pool mining and solo gRPC mining.
 
 - Low CPU usage during normal GPU mining.
 - `0%` devfee when mining on `nushypool.com`.
-- Supports solo mining directly against a blockchain node over gRPC.
+- Supports solo mining directly against a blockchain node over gRPC/RPC.
 - Supports Stratum mining on any compatible pool.
 - Supports Linux, Windows, HiveOS, and mmpOS.
 - Supports NVIDIA GPUs through CUDA and AMD GPUs through OpenCL.
@@ -20,10 +21,10 @@ It supports standard Stratum pool mining and solo gRPC mining.
 - Includes autotune with cache reuse to keep tuned launch settings across restarts.
 - Supports multi-GPU rigs with simple per-GPU selection via `--devices`.
 - Includes watchdog-based worker supervision and recovery-oriented startup checks.
+- Local stats API which expose read-only HTTP stats for HiveOS, mmpOS, and XMRig-compatible dashboards.
 
 > [!CAUTION]
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
-> - **Hoohash:** Support is experimental, performance may vary, and active development is ongoing.
 > - **AMD / OpenCL cards:** Support is experimental — optimal performance is not guaranteed.
 
 ## npminer
@@ -39,11 +40,12 @@ Typical pool mining command:
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET -w worker1
 ```
 
-Typical solo gRPC mining command:
+Typical solo node mining command (gRPC/RPC):
 
 ```bash
 ./npminer -a hoohash -о grpc://127.0.0.1:42420 -u hoosat:YOUR_WALLET
 ./npminer -a hoohash --url grpc://127.0.0.1:42420 --user hoosat:YOUR_WALLET
+./npminer -a xelishash -o rpc://127.0.0.1:PORT -u xel:YOUR_WALLET
 ```
 
 Useful GPU selection commands:
@@ -78,9 +80,11 @@ In that example:
 More examples:
 
 ```bash
+./npminer -a hoohash -о grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET -d 0
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET --devices 0,2,3
 ./npminer -a hoohash -о grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
+./npminer -a xelishash -o rpc://POOL:PORT -u xel:YOUR_WALLET --http-enabled --http-port 42330
 ```
 
 If `--devices` is not provided, all detected GPUs are used.
@@ -153,6 +157,23 @@ Legacy compatibility Stratum options are also supported:
 - `--stratum-worker <WORKER>`
 - `--stratum-password <PASSWORD>`
 
+### API Reference
+- `--api-port <PORT>`
+   Starts the local HTTP stats API on the selected port.
+- `--api-bind <ADDR>`
+   Bind address for the API listener. The default is localhost.
+- `--api-token <TOKEN>`
+  Bearer token used to protect API responses. Required for non-local binds.
+- `--api-disable`
+  Disables the API, including when a mining OS package would normally enable it.
+- `--api-worker-id <ID>`
+  Overrides the worker ID shown in API responses.
+- `--api-id <ID>`
+  Overrides the miner instance ID shown in API responses.
+- `--http-enabled, --http-host, --http-port, --http-access-token`
+  XMRig-compatible aliases for monitoring software that already knows miner HTTP flags.
+- `--http-no-restricted`
+  Accepted for CLI compatibility. npminer does not expose write or control endpoints in v1.
 
 ### CUDA Options
 
@@ -207,6 +228,7 @@ Legacy compatibility Stratum options are also supported:
 | `memhash` | `1%` | `1%` | `0%` |
 | `hoohash` | `1%` | `1%` | `0%` |
 | `cryptix` | `1%` | `1%` | `0%` |
+| `xelishash` | `1%` | `1%` | `0%` |
 
 > **NushyPool users mine with no dev fee.**
 > 
