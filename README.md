@@ -27,6 +27,9 @@ It supports standard Stratum pool mining and solo gRPC mining.
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
 > - **AMD / OpenCL cards:** Support is experimental — optimal performance is not guaranteed.
 
+## Credits
+🙏 Special thanks to @ivchobow, @galindo9856, @MrGodzillaa166, and Mike
+
 ## npminer
 
 Main executable:
