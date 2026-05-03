@@ -103,8 +103,8 @@ Current backend coverage:
 
 | Backend | Vendor | Algorithms | OS |
 |---|---|---|---|
-| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix` | Windows, Linux, HiveOS, mmpOS |
-| OpenCL | AMD | `memhash`, `hoohash`, `cryptix` | Windows, Linux, HiveOS, mmpOS |
+| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix`, `helishash` | Windows, Linux, HiveOS, mmpOS |
+| OpenCL | AMD | `memhash`, `hoohash`, `cryptix`, `helishash` | Windows, Linux, HiveOS, mmpOS |
 
 Notes:
 
@@ -112,6 +112,7 @@ Notes:
 - `--opencl-platform` can be used when the default OpenCL platform is not the one you want.
 - NVIDIA OpenCL is intentionally not the primary path; NVIDIA cards are expected to use CUDA.
 - `--devices` is the recommended end-user way to select GPUs. Use `--cuda-device` and `--opencl-device` only when backend-specific selection is required.
+
 
 ## Help Output
 
