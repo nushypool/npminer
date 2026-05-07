@@ -242,13 +242,6 @@ When enabled, npminer downloads the matching release archive, verifies the archi
 
 HiveOS and mmpOS packages use their own package markers so auto-update selects the matching HiveOS or mmpOS archive instead of the generic Linux archive. The install directory must be writable by the miner process.
 
-Useful environment variables:
-
-- `NPMINER_AUTOUPDATE_DISABLE=1`
-  Disable startup update checks completely.
-- `NPMINER_AUTOUPDATE_MANIFEST_URL=<URL>`
-  Override the downloads manifest URL for staging or test environments.
-
 ## Devfee
 
 | Algorithm | Stratum | Solo gRPC | NushyPool |
