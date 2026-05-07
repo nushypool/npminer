@@ -21,6 +21,7 @@ It supports standard Stratum pool mining and solo gRPC mining.
 - Includes autotune with cache reuse to keep tuned launch settings across restarts.
 - Supports multi-GPU rigs with simple per-GPU selection via `--devices`.
 - Includes watchdog-based worker supervision and recovery-oriented startup checks.
+- Optional signed auto-update with `--enable-autoupdate`.
 - Local stats API which expose read-only HTTP stats for HiveOS, mmpOS, and XMRig-compatible dashboards.
 
 > [!CAUTION]
@@ -144,6 +145,8 @@ The current supported `npminer` command-line options are:
   Comma-separated GPU `Index` values from `--list-gpus`, not `Bus ID`.
 - `--reset-autotune`
   Delete cached autotune state and force a fresh retune.
+- `--enable-autoupdate`
+  Automatically download, verify, install, and restart into a newer npminer release when one is available.
 
 ### Stratum Pool and Solo Node Mining
 
@@ -225,6 +228,27 @@ Legacy compatibility Stratum options are also supported:
 - If no device selection flags are provided, all detected GPUs are used.
 - `--debug` exists in debug builds only and is not part of the normal release-user CLI surface.
 
+## Auto-Update
+
+npminer checks the official downloads manifest at startup. If a newer version is available and `--enable-autoupdate` is not passed, the miner prints a warning and continues mining with the current version.
+
+Enable automatic updates explicitly:
+
+```bash
+./npminer --algo hoohash --url stratum+tcp://POOL:PORT --user hoosat:YOUR_WALLET --worker Hashvilly --enable-autoupdate
+```
+
+When enabled, npminer downloads the matching release archive, verifies the archive `sha256`, size, and Ed25519 signature from `downloads.json`, installs the update into the current miner directory, and restarts itself. If the update check, download, verification, or install step fails, npminer keeps running the current version.
+
+HiveOS and mmpOS packages use their own package markers so auto-update selects the matching HiveOS or mmpOS archive instead of the generic Linux archive. The install directory must be writable by the miner process.
+
+Useful environment variables:
+
+- `NPMINER_AUTOUPDATE_DISABLE=1`
+  Disable startup update checks completely.
+- `NPMINER_AUTOUPDATE_MANIFEST_URL=<URL>`
+  Override the downloads manifest URL for staging or test environments.
+
 ## Devfee
 
 | Algorithm | Stratum | Solo gRPC | NushyPool |
@@ -240,6 +264,24 @@ Legacy compatibility Stratum options are also supported:
 ## One-Line Installation
 
 Replace `<VERSION>` with the release version you want, for example `0.0.1`.
+
+## Release Build Signing
+
+`build_release_archives.sh` writes `downloads.json` in the release downloads directory and signs each archive entry with Ed25519. Official auto-update builds embed the matching public key into `npminer`, so unsigned or tampered archives are refused.
+
+The build script automatically creates and reuses a local signing key when one is not provided:
+
+```bash
+~/.config/npminer/autoupdate-ed25519.key
+```
+
+Run release packaging normally:
+
+```bash
+./build_release_archives.sh
+```
+
+For production, set `NPMINER_RELEASE_SIGNING_KEY=/path/to/autoupdate-ed25519.key` to use a dedicated signing key. Release builds also derive a per-release encrypted-resource key seed automatically, so embedded cubins, OpenCL binaries, and devfee settings are re-encrypted for each release version.
 
 ### Windows
 
