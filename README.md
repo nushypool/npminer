@@ -265,24 +265,6 @@ Useful environment variables:
 
 Replace `<VERSION>` with the release version you want, for example `0.0.1`.
 
-## Release Build Signing
-
-`build_release_archives.sh` writes `downloads.json` in the release downloads directory and signs each archive entry with Ed25519. Official auto-update builds embed the matching public key into `npminer`, so unsigned or tampered archives are refused.
-
-The build script automatically creates and reuses a local signing key when one is not provided:
-
-```bash
-~/.config/npminer/autoupdate-ed25519.key
-```
-
-Run release packaging normally:
-
-```bash
-./build_release_archives.sh
-```
-
-For production, set `NPMINER_RELEASE_SIGNING_KEY=/path/to/autoupdate-ed25519.key` to use a dedicated signing key. Release builds also derive a per-release encrypted-resource key seed automatically, so embedded cubins, OpenCL binaries, and devfee settings are re-encrypted for each release version.
-
 ### Windows
 
 Download and extract the Windows package in one line from PowerShell:
