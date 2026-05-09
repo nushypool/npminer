@@ -274,7 +274,7 @@ Download and extract the Linux package in one line:
 VERSION=<VERSION> && curl -L "https://github.com/nushypool/npminer/releases/download/v${VERSION}/npminer-linux-x86_64-v${VERSION}.tar.gz" | tar -xz
 ```
 
-### Setup for HiveOS
+### Example Setup for HiveOS
 Example HiveOS configurations
 | Hoohash | Vecno | Cpay |
 |---|---|---|
