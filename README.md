@@ -278,7 +278,7 @@ VERSION=<VERSION> && curl -L "https://github.com/nushypool/npminer/releases/down
 Example HiveOS configurations
 | Hoohash | Vecno | Cpay |
 |---|---|---|
-| <img width="675" height="694" alt="image" src="https://github.com/user-attachments/assets/e0dcad8c-c14a-402f-a5c7-9b03a65a6c7a" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/89a2a8b0-9217-4e5b-be4d-4a88836e1e6e" /> | <img width="679" height="697" alt="image" src="https://github.com/user-attachments/assets/162ab204-4969-4acf-b006-ba5d969fdd5c" /> |
+| <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/e0dcad8c-c14a-402f-a5c7-9b03a65a6c7a" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/89a2a8b0-9217-4e5b-be4d-4a88836e1e6e" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/162ab204-4969-4acf-b006-ba5d969fdd5c" /> |
 
 
 ## Notes
