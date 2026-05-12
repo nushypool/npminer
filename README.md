@@ -7,7 +7,7 @@
 - `hoohash` for [Hoosat Network](https://network.hoosat.fi/)
 - `xelishash` for [Xelis Network](https://xelis.io/)
 
-It supports standard Stratum pool mining and solo gRPC mining.
+It supports standard Stratum pool mining and solo gRPC/RPC mining.
 
 ## Key Features
 
