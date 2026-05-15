@@ -2,31 +2,35 @@
 
 `npminer` is the NushyPool GPU miner. It is a Rust-based miner with CUDA and OpenCL backends and currently supports these algorithms:
 
-- `memhash` for [Vecno Fondation](https://vecnofoundation.org/)
+- `memhash` for [Vecno Foundation](https://vecnofoundation.org/)
 - `cryptix` for [Cryptix Network](https://cryptix-network.org/)
 - `hoohash` for [Hoosat Network](https://network.hoosat.fi/)
 - `xelishash` for [Xelis Network](https://xelis.io/)
+- `capstash` for [CapStash Chain](https://capstash.org/)
 
-It supports standard Stratum pool mining and solo gRPC/RPC mining.
+It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining.
 
 ## Key Features
 
 - Low CPU usage during normal GPU mining.
-- `0%` devfee when mining on `nushypool.com`.
+- `0%` devfee on supported NushyPool fee-exempt pools.
 - Supports solo mining directly against a blockchain node over gRPC/RPC.
 - Supports Stratum mining on any compatible pool.
 - Supports Linux, Windows, HiveOS, and mmpOS.
 - Supports NVIDIA GPUs through CUDA and AMD GPUs through OpenCL.
-- Supports multiple algorithms in one miner: `memhash`, `hoohash`, and `cryptix`.
+- Supports multiple algorithms in one miner: `memhash`, `hoohash`, `cryptix`, `xelishash`, and `capstash`.
 - Includes autotune with cache reuse to keep tuned launch settings across restarts.
 - Supports multi-GPU rigs with simple per-GPU selection via `--devices`.
 - Includes watchdog-based worker supervision and recovery-oriented startup checks.
 - Optional signed auto-update with `--enable-autoupdate`.
 - Local stats API which expose read-only HTTP stats for HiveOS, mmpOS, and XMRig-compatible dashboards.
 
+> [!NOTE]
+> **CapStash:** CapStash support is currently experimental. We are evaluating miner interest, and if demand is strong enough, NushyPool may launch a dedicated CapStash pool.
+
 > [!CAUTION]
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
-> - **AMD / OpenCL cards:** Support is experimental, optimal performance is not guaranteed.
+> - **AMD / OpenCL cards:** Support is experimental — optimal performance is not guaranteed.
 
 ## Credits
 🙏 Special thanks to @ivchobow, @galindo9856, @MrGodzillaa166, and Mike
@@ -47,9 +51,16 @@ Typical pool mining command:
 Typical solo node mining command (gRPC/RPC):
 
 ```bash
-./npminer -a hoohash -о grpc://127.0.0.1:42420 -u hoosat:YOUR_WALLET
+./npminer -a hoohash -o grpc://127.0.0.1:42420 -u hoosat:YOUR_WALLET
 ./npminer -a hoohash --url grpc://127.0.0.1:42420 --user hoosat:YOUR_WALLET
 ./npminer -a xelishash -o rpc://127.0.0.1:PORT -u xel:YOUR_WALLET
+./npminer -a capstash -o rpc://127.0.0.1:8332 -u cap1YOUR_WALLET --rpc-user capstashrpc --rpc-pass YOUR_RPC_PASSWORD
+```
+
+CapStash pool mining command:
+
+```bash
+./npminer -a capstash -o stratum+tcp://eu.capspool.io:7333 -u cap1YOUR_WALLET -w worker1
 ```
 
 Useful GPU selection commands:
@@ -84,11 +95,12 @@ In that example:
 More examples:
 
 ```bash
-./npminer -a hoohash -о grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
+./npminer -a hoohash -o grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET -d 0
 ./npminer -a memhash -o stratum+tcp://POOL:PORT -u vecno:YOUR_WALLET --devices 0,2,3
-./npminer -a hoohash -о grpc://POOL:PORT -u hoosat:YOUR_WALLET -d 1
 ./npminer -a xelishash -o rpc://POOL:PORT -u xel:YOUR_WALLET --http-enabled --http-port 42330
+./npminer -a capstash -o stratum+tcp://eu.capspool.io:7333 -u cap1YOUR_WALLET -w worker1 --opencl-disable
+./npminer -a capstash -o stratum+tcp://eu.capspool.io:7333 -u cap1YOUR_WALLET -w worker1 --cuda-disable --opencl-enable
 ```
 
 If `--devices` is not provided, all detected GPUs are used.
@@ -104,8 +116,8 @@ Current backend coverage:
 
 | Backend | Vendor | Algorithms | OS |
 |---|---|---|---|
-| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix`, `helishash` | Windows, Linux, HiveOS, mmpOS |
-| OpenCL | AMD | `memhash`, `hoohash`, `cryptix`, `helishash` | Windows, Linux, HiveOS, mmpOS |
+| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix`, `xelishash`, `capstash` | Windows, Linux, HiveOS, mmpOS |
+| OpenCL | AMD | `memhash`, `hoohash`, `cryptix`, `xelishash`, `capstash` | Windows, Linux, HiveOS, mmpOS |
 
 Notes:
 
@@ -117,11 +129,19 @@ Notes:
 
 ## Help Output
 
-Print the current CLI help with:
+Print short CLI help with:
+
+```bash
+./npminer -h
+```
+
+Print detailed CLI help with:
 
 ```bash
 ./npminer --help
 ```
+
+Use `-h` when you only need the option list. Use `--help` when you want the longer descriptions and examples for options such as `--url`, `--user`, `--devices`, and the HTTP API flags.
 
 ## Command Reference
 
@@ -133,12 +153,16 @@ The current supported `npminer` command-line options are:
   Print help.
 - `-v, --version`
   Print version.
-- `-a, --algo <memhash|hoohash|cryptix>`
+- `-a, --algo <memhash|hoohash|cryptix|xelishash|capstash>`
   Select algorithm explicitly.
 - `--mining-address <ADDRESS>`
   Mining reward address.
 - `-u, --user <USER>`
   Standard pool-style wallet field, for example `vecno:...` or `vecno:....worker`.
+- `--rpc-user <USER>`
+  JSON-RPC username for direct-node solo mining, currently used by CapStash RPC.
+- `--rpc-pass <PASSWORD>`
+  JSON-RPC password for direct-node solo mining, currently used by CapStash RPC.
 - `--list-gpus`
   Print the miner GPU inventory and exit.
 - `-d, --devices <LIST>`
@@ -151,7 +175,7 @@ The current supported `npminer` command-line options are:
 ### Stratum Pool and Solo Node Mining
 
 - `-o, --url <URL>`
-  Standard Stratum URL, for example `stratum+tcp://host:port` for stratum or `grpc://host:port` for solo mining on node
+  Mining server URL, for example `stratum+tcp://host:port` for Stratum, `grpc://host:port` for Vecno-style solo mining, or `rpc://host:port` for XelisHash/CapStash direct-node solo mining.
 - `-w, --worker <WORKER>`
   Standard worker name.
 - `-p, --pass <PASSWORD>`
@@ -244,14 +268,17 @@ HiveOS and mmpOS packages use their own package markers so auto-update selects t
 
 ## Devfee
 
-| Algorithm | Stratum | Solo gRPC | NushyPool |
+| Algorithm | Stratum | Solo gRPC/RPC | NushyPool |
 |-----------|--------:|----------:|----------:|
 | `memhash` | `1%` | `1%` | `0%` |
 | `hoohash` | `1%` | `1%` | `0%` |
 | `cryptix` | `1%` | `1%` | `0%` |
 | `xelishash` | `1%` | `1%` | `0%` |
+| `capstash` | `2%` | `2%` | `n/a` |
 
-> **NushyPool users mine with no dev fee.**
+> **NushyPool fee-exempt pool users mine with no dev fee.**
+>
+> CapStash direct RPC node mining uses the solo RPC devfee setting.
 > 
 
 ## One-Line Installation
@@ -274,11 +301,11 @@ Download and extract the Linux package in one line:
 VERSION=<VERSION> && curl -L "https://github.com/nushypool/npminer/releases/download/v${VERSION}/npminer-linux-x86_64-v${VERSION}.tar.gz" | tar -xz
 ```
 
-### Example Setup for HiveOS
+### Setup for HiveOS
 Example HiveOS configurations
 | Hoohash | Vecno | Cpay |
 |---|---|---|
-| <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/e0dcad8c-c14a-402f-a5c7-9b03a65a6c7a" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/89a2a8b0-9217-4e5b-be4d-4a88836e1e6e" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/162ab204-4969-4acf-b006-ba5d969fdd5c" /> |
+| <img width="675" height="694" alt="image" src="https://github.com/user-attachments/assets/e0dcad8c-c14a-402f-a5c7-9b03a65a6c7a" /> | <img width="673" height="699" alt="image" src="https://github.com/user-attachments/assets/89a2a8b0-9217-4e5b-be4d-4a88836e1e6e" /> | <img width="679" height="697" alt="image" src="https://github.com/user-attachments/assets/162ab204-4969-4acf-b006-ba5d969fdd5c" /> |
 
 
 ## Notes
