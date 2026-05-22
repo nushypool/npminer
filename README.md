@@ -25,12 +25,9 @@ It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining.
 - Optional signed auto-update with `--enable-autoupdate`.
 - Local stats API which expose read-only HTTP stats for HiveOS, mmpOS, and XMRig-compatible dashboards.
 
-> [!NOTE]
-> **CapStash:** CapStash support is currently experimental. We are evaluating miner interest, and if demand is strong enough, NushyPool may launch a dedicated CapStash pool.
-
 > [!CAUTION]
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
-> - **AMD / OpenCL cards:** Support is experimental — optimal performance is not guaranteed.
+
 
 ## Credits
 🙏 Special thanks to @ivchobow, @galindo9856, @MrGodzillaa166, and Mike
