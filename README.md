@@ -7,6 +7,7 @@
 - `hoohash` for [Hoosat Network](https://network.hoosat.fi/)
 - `xelishash` for [Xelis Network](https://xelis.io/)
 - `capstash` for [CapStash Chain](https://capstash.org/)
+- `pearlhash` for [Pearl Chain](https://pearlresearch.ai/)
 
 It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining.
 
@@ -27,6 +28,7 @@ It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining.
 
 > [!CAUTION]
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
+> - **Pearl** support is experimental. Optimal Pearl performance is currently available only on NVIDIA Ampere / RTX 30-series GPUs. Support for other GPU architectures is coming soon.
 
 
 ## Credits
@@ -271,7 +273,8 @@ HiveOS and mmpOS packages use their own package markers so auto-update selects t
 | `hoohash` | `1%` | `1%` | `0%` |
 | `cryptix` | `1%` | `1%` | `0%` |
 | `xelishash` | `1%` | `1%` | `0%` |
-| `capstash` | `2%` | `2%` | `n/a` |
+| `capstash` | `2%` | `2%` | `0%` |
+| `pearlhash` | `2%` | `n/a` | `0%` |
 
 > **NushyPool fee-exempt pool users mine with no dev fee.**
 >
