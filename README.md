@@ -152,7 +152,7 @@ The current supported `npminer` command-line options are:
   Print help.
 - `-v, --version`
   Print version.
-- `-a, --algo <memhash|hoohash|cryptix|xelishash|capstash>`
+- `-a, --algo <memhash|hoohash|cryptix|xelishash|capstash|pearl>`
   Select algorithm explicitly.
 - `--mining-address <ADDRESS>`
   Mining reward address.
