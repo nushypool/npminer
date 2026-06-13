@@ -115,7 +115,7 @@ Current backend coverage:
 
 | Backend | Vendor | Algorithms | OS |
 |---|---|---|---|
-| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix`, `xelishash`, `capstash` | Windows, Linux, HiveOS, mmpOS |
+| CUDA | NVIDIA | `memhash`, `hoohash`, `cryptix`, `xelishash`, `capstash`, `pearl` | Windows, Linux, HiveOS, mmpOS |
 | OpenCL | AMD | `memhash`, `hoohash`, `cryptix`, `xelishash`, `capstash` | Windows, Linux, HiveOS, mmpOS |
 
 Notes:
