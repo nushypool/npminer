@@ -29,6 +29,7 @@ It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining.
 > [!CAUTION]
 > - **Drivers:** Always install the latest GPU drivers to achieve optimal hashrate performance.
 > - **Pearl** support is experimental. Optimal Pearl performance is currently available only on NVIDIA Ampere / RTX 30-series GPUs. Support for other GPU architectures is coming soon.
+> - --prl-cpu-cooldown <ms> is experimental and may affect **Pearl** hashrate or stale/late shares.
 
 
 ## Credits
