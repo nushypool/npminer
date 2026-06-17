@@ -170,6 +170,10 @@ The current supported `npminer` command-line options are:
   Delete cached autotune state and force a fresh retune.
 - `--enable-autoupdate`
   Automatically download, verify, install, and restart into a newer npminer release when one is available.
+- `--prl-cpu-cooldown <ms>` Reduce CPU usage during Pearl mining by adding a cooldown between GPU filter-event polls.
+  `0` disables the cooldown and actively polls the GPU filter event.
+  Higher values can reduce CPU usage but may reduce Pearl hashrate or increase stale/late shares. 
+  This option is Pearl-specific and experimental; use it at your own risk.
 
 ### Stratum Pool and Solo Node Mining
 
