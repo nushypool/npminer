@@ -35,7 +35,7 @@ It supports standard **Stratum** pool mining and solo **gRPC/RPC** mining for th
 > - **OpenCL/AMD** support remains experimental; performance varies by GPU and driver.
 
 ## Credits
-🙏 Special thanks to @ivchobow, @galindo9856, @MrGodzillaa166, and Mike
+🙏 Special thanks to @ivchobow, @galindo9856, @MrGodzillaa166, and [@LoonieTunes](https://app.mmpos.eu/).
 
 ## npminer
 
